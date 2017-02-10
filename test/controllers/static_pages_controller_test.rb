@@ -13,27 +13,29 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
   
   test "should get home" do
-    get static_pages_home_url
+    get root_path
     assert_response :success
     assert_select "title", "#{@base_title}"
   end
 
   test "should get help" do
-    get static_pages_help_url
+    get helf_path
     assert_response :success
     assert_select "title", "Help | #{@base_title}"
 end
   
   test "should get about" do
-    get static_pages_about_url
+    get about_path
     assert_response :success
     assert_select "title", "About | #{@base_title}"
 end
 
   test "should get contact" do
-    get static_pages_contact_url
+    get '/contact'
     assert_response :success
-    assert_select "title", "Contact | #{@base_title}"
+    assert_select "title", #Esse title é a tag HTML title, e não a variável :title que o método provide() manda
+                           #em contact.html.erb, ou seja, ele verifica se a tag title tem o texto "Contact | base_title"
+    "Contact | #{@base_title}"
   end
 
 end
