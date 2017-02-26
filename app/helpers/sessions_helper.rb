@@ -18,7 +18,7 @@ module SessionsHelper
     elsif (user_id = cookies.signed[:user_id])
       user = User.find_by(id: user_id)
       if user && user.authenticated?(cookies[:remember_token])
-        log_in user
+        log_in user #comentar isso dps pra testar sem
         @current_user = user
       end
     end
@@ -29,7 +29,7 @@ module SessionsHelper
     !current_user.nil? #sign the token ; tentar descobrir o id decriptando usando cookies.signed[:user_id]
   end
   
-    # Forgets a persistent session.
+  # Forgets a persistent session.
   def forget(user)
     user.forget
     cookies.delete(:user_id)
@@ -41,5 +41,21 @@ module SessionsHelper
     forget(current_user)
     session.delete(:user_id)
     @current_user = nil
+  end
+  
+  # Returns true if the given user is the current user.
+  def current_user?(user)
+    user == current_user
+  end
+  
+    # Redirects to stored location (or to the default).
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # Stores the URL trying to be accessed.
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end

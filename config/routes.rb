@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   
-  get  '/help',    to: 'static_pages#help', as: 'helf'
+  get  '/help',    to: 'static_pages#help', as: 'helf' #esse helf serve para usar no helf_path e helf_url
   
   get  '/about',   to: 'static_pages#about'
   
