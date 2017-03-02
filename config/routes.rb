@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-
-  get 'sessions/new'
-
+  
   root 'static_pages#home'
   
   get  '/help',    to: 'static_pages#help', as: 'helf' #esse helf serve para usar no helf_path e helf_url
@@ -18,6 +16,11 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   
+  get "/microposts" => redirect("/")
+  #get '/microposts?page=3' => redirect("/?page=3")
+
+  
   resources :users
+  resources :microposts,          only: [:create, :destroy]
   
 end
