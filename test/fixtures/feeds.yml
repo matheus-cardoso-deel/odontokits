@@ -1,0 +1,5 @@
+<% 3.times do |n| %>
+feed_<%= n %>:
+  tipo: "Entrada"
+  kit: kit_1
+<% end %>

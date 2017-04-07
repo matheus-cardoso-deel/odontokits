@@ -1,0 +1,1 @@
+  json.extract! @kit, :id, :nome, :aluno_id, :created_at, :updated_at

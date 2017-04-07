@@ -1,0 +1,9 @@
+<%= form_for(@kit, url: yield(:path)) do |f| %> <!--#@aluno instance variable from controller-->
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :nome %>
+  <%= f.text_field :nome, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,33 @@
+<li id="feed-<%= feed.id %>">
+  <div class="row">
+    <aside class="col-md-6">  
+      <% if feed.texto == "Entrada" %>
+        <%= link_to image_tag("entrada.png", size:"40", alt: "Feed Image", class:"gravatar"), feed.kit %>
+      <% else %>
+        <%= link_to image_tag("saida.png", size:"40", alt: "Feed Image", class:"gravatar"), feed.kit %>
+      <% end %>
+      <span class="user"><b> <%= feed.texto %> </b>  - Setor de Esterelização DOD/CCS</span>
+      <br>
+      <%= link_to Kit.find(feed.kit_id).nome, feed.kit %>
+      <span class="timestamp">
+        <%=feed.created_at.strftime("%d/%m/%Y às %T") %>
+        <br>
+      </span>
+      </section>
+    </aside>
+      <div class="col-md-6" id="aluno_info">
+        <section>
+          <p>
+            <%= gravatar_for_aluno Aluno.find(Kit.find(feed.kit_id).aluno_id) %>
+            <%= link_to Aluno.find(Kit.find(feed.kit_id).aluno_id).nome,  Aluno.find(Kit.find(feed.kit_id).aluno_id)  %>
+          </p>
+          <p>
+            <%= Aluno.find(Kit.find(feed.kit_id).aluno_id).email %>
+          </p>     
+          <p>
+            <%= Aluno.find(Kit.find(feed.kit_id).aluno_id).matricula %>
+          </p>
+        </section>
+    </div>
+  </div>
+</li>

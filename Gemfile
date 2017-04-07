@@ -12,7 +12,10 @@ gem 'uglifier', '3.0.0'
 gem 'coffee-rails', '4.2.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'angularjs-rails'
+gem 'angular-rails-templates'
 
+#gem 'dotiw', '3.1.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.1.1'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -20,6 +23,9 @@ gem 'turbolinks', '5.0.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '2.4.1'
 gem 'bootstrap-sass', '3.3.6'
+gem 'jquery-turbolinks', '2.1.0'
+gem 'jwt'
+gem 'simple_command'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -27,6 +33,11 @@ gem 'bcrypt', '~> 3.1.11'
 gem 'faker', '1.6.6'
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
+
+gem 'rqrcode'
+gem 'rqrcode_png'
+gem 'chunky_png'
+gem 'dragonfly', '~> 1.0.12'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

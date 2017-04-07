@@ -1,0 +1,25 @@
+<% provide(:title, 'Cadastrar Kit') %>
+<% provide(:button_text, 'Cadastrar Kit') %>
+<% provide(:path, aluno_kits_path) %>
+
+
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= link_to (gravatar_for_aluno @aluno), @aluno %>
+        <%= link_to @aluno.nome, @aluno %>
+      </h1>
+      <h1>
+        <%= @aluno.email %>
+      </h1>     
+      <h1>
+        <%= @aluno.matricula %>
+      </h1>
+    </section>
+  </aside>
+    <div class="col-md-6">
+      <h1> Cadastrar kit</h1>
+      <%= render 'form_kit' %>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<% provide(:title, 'Feed') %>
+<h1>Feed</h1>
+
+<%= will_paginate %>
+
+<ul class="feeds">
+    <%= render @feeds %>
+</ul>
+
+<%= will_paginate %>

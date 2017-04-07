@@ -1,0 +1,8 @@
+<li>
+  <%= gravatar_for_aluno aluno, size: 50 %>
+  <%= link_to aluno.nome, aluno %>
+  <% if current_user.admin? %>
+    | <%= link_to "delete", aluno,
+    method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger' %>
+  <% end %>
+</li>

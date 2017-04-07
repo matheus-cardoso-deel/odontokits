@@ -1,0 +1,14 @@
+<% provide(:title, 'Alunos') %>
+<h1>Alunos</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @alunos %>
+</ul>
+
+<%= will_paginate %>
+
+<script>
+  localStorage.clear(); // nott really necessary, just clear the tabs that've been stored on the alunos show page
+</script>

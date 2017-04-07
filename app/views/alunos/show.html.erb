@@ -1,0 +1,87 @@
+<% provide(:title, @aluno.nome) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for_aluno @aluno %>
+        <%= @aluno.nome %>
+      </h1>
+      <h1>
+        <%= @aluno.email %>
+      </h1>     
+      <h1>
+        <%= @aluno.matricula %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Kits</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Histórico</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+      <% if @aluno.kits.any? %>
+        <h3>Kits Cadastrados (<%= @aluno.kits.count %>)   <%= link_to "Cadastrar Kit", new_aluno_kit_path(@aluno), class: "btn btn-lg btn-primary" %> </h3>
+        <ol class="feeds">
+          <%= render @kits %>
+        </ol>
+        <%= will_paginate @kits %>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="profile">          
+      <% if @aluno.feeds.any? %>
+        <h3>Histórico de Transações para <%= @aluno.nome %> (<%= @aluno.feeds.count %>)</h3>
+        <ol class="feeds">
+          <%= render @feeds %>
+        </ol>
+        <%= will_paginate @feeds %>
+      <% end %>
+    </div>
+  </div>
+  
+  <script> 
+$(function() { 
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      // save the latest tab; use cookies if you like 'em better:
+      localStorage.setItem('lastTab', $(this).attr('href'));
+  });
+
+  // go to the latest tab, if it exists:
+  var lastTab = localStorage.getItem('lastTab');
+  if (lastTab) {
+      $('[href="' + lastTab + '"]').tab('show');
+  }
+  
+ // $(document).on('turbolinks:load', function() {
+
+  // for bootstrap 3 use 'shown.bs.tab', for bootstrap 2 use 'shown' in the next line
+  
+  // looks for tab and do something on shown event of the given tab - For information about tab events, check http://getbootstrap.com/javascript/#tabs-events
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+      //  before the new tab has been shown, the code below verifies that the tab has changed and if the pagination is greater than one
+      //  if so, it redirects to first page (1) of the new tab
+
+      var currentUrl = window.location.href;
+      
+      if (currentUrl.indexOf('?page=') > -1){
+        
+        var lastPage = currentUrl.split('?')[1].split('=');
+        lastPage.shift();
+
+        if(lastPage != 1 && lastTab && lastTab != $(this).attr('href')){ //lastPage here is equal to params[page]
+          var newUrl = location.href.replace("?page="+lastPage, "");
+          window.location.href = newUrl;
+        }        
+      }
+      
+    });
+ // });
+})
+</script>
+
+  </div>
+</div>

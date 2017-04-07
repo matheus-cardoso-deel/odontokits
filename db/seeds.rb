@@ -6,11 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(name:  "Example User",
-             email: "example@railstutorial.org",
-             password:              "foobar",
-             password_confirmation: "foobar",
+User.create!(name:  "Matheus Admin",
+             email: "its.matheus3@gmail.com",
+             password:              "123123",
+             password_confirmation: "123123",
              admin: true)
+             
+Aluno.create!(nome: "Matheus Campos Cardoso",
+              email: "its.matheus3@gmail.com",
+              matricula: "2012939548")
 
 99.times do |n|
   name  = Faker::Name.name
@@ -22,8 +26,45 @@ User.create!(name:  "Example User",
                password_confirmation: password)
 end
 
-users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: content) }
+99.times do |n|
+  nome  = Faker::Name.name
+  email = "example-#{n+1}@railstutorial.org"
+  matricula = Faker::Number.number(10)
+  Aluno.create!(nome:  nome,
+               email: email,
+               matricula: matricula)
 end
+
+alunos = Aluno.order(:created_at).take(6)
+3.times do |n|
+  nome = "Item #{n+1}"
+  alunos.each { |aluno| 
+  if aluno.nome != "Matheus Campos Cardoso"
+    qr_code_img = RQRCode::QRCode.new(nome, :size => 4, :level => :h ).to_img.
+    resize(150, 150)
+    aluno.kits.create!(nome: nome, image: qr_code_img.to_string)
+    aluno.kits.first.feeds.create!(tipo: "Entrada")
+    aluno.kits.first.feeds.create!(tipo: "Saída")
+  end
+  }
+end
+
+aluno_matheus = Aluno.find_by(email: 'its.matheus3@gmail.com')
+qr_code_img = RQRCode::QRCode.new("Caixa de aparelhos", :size => 4, :level => :h ).to_img.
+resize(150, 150)
+aluno_matheus.kits.create!(nome: "Caixa de aparelhos", image: qr_code_img.to_string)
+qr_code_img = RQRCode::QRCode.new("Kit de clareamento", :size => 4, :level => :h ).to_img.
+resize(150, 150)
+aluno_matheus.kits.create!(nome: "Kit de clareamento", image: qr_code_img.to_string)
+qr_code_img = RQRCode::QRCode.new("Kit de esterelização", :size => 4, :level => :h ).to_img.
+resize(150, 150)
+aluno_matheus.kits.create!(nome: "Kit de esterelização", image: qr_code_img.to_string)
+qr_code_img = RQRCode::QRCode.new("Kit Higiênico", :size => 4, :level => :h ).to_img.
+resize(150, 150)
+aluno_matheus.kits.create!(nome: "Kit Higiênico", image: qr_code_img.to_string)
+
+aluno_matheus.kits.first.feeds.create!(tipo: "Entrada")
+aluno_matheus.kits.first.feeds.create!(tipo: "Saída")
+aluno_matheus.kits.first.feeds.create!(tipo: "Entrada")
+aluno_matheus.kits.first.feeds.create!(tipo: "Saída")
+

@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  has_many :microposts, dependent: :destroy
   attr_accessor :remember_token
   before_save { self.email.downcase! }
   validates(:name, presence: true, length: { maximum: 50 }) #try removing the parenthesis, it's magic!
@@ -9,13 +8,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
-    # Defines a proto-feed.
-  # See "Following users" for the full implementation.
-  def feed
-    Micropost.where("user_id = ?", id) # Or simply microposts, why? #TEST IT
-    # microposts
-  end
-  
+
     # Returns the hash digest of the given string.
   def User.digest(string) # Class method
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

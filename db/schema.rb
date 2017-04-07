@@ -10,15 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226161101) do
+ActiveRecord::Schema.define(version: 20170303102736) do
 
-  create_table "microposts", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "user_id"
+  create_table "alunos", force: :cascade do |t|
+    t.string   "image_uid"
+    t.string   "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_microposts_on_user_id"
+    t.string   "matricula"
+    t.string   "email"
+    t.index ["email"], name: "index_alunos_on_email", unique: true
+    t.index ["matricula"], name: "index_alunos_on_matricula", unique: true
+  end
+
+  create_table "feeds", force: :cascade do |t|
+    t.string   "tipo"
+    t.integer  "kit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["kit_id", "created_at"], name: "index_feeds_on_kit_id_and_created_at"
+    t.index ["kit_id"], name: "index_feeds_on_kit_id"
+  end
+
+  create_table "kits", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "image_uid"
+    t.integer  "aluno_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["aluno_id", "created_at"], name: "index_kits_on_aluno_id_and_created_at"
+    t.index ["aluno_id"], name: "index_kits_on_aluno_id"
   end
 
   create_table "users", force: :cascade do |t|

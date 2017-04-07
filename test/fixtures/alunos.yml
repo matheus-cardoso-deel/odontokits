@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+<% 40.times do |n| %>
+aluno_<%= n %>:
+  nome:  <%= "Aluno #{n}" %>
+  email: <%= "aluno-#{n}@example.com" %>
+<% end %>
