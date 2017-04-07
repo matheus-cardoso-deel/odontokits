@@ -1,7 +1,6 @@
 class Aluno < ApplicationRecord
   has_many :kits, dependent: :destroy
   has_many :feeds, :through => :kits
-  dragonfly_accessor :image
   before_save { self.email = email.downcase }
   
   validates(:nome, presence: true, length: { maximum: 50 }) #try removing the parenthesis, it's magic!

@@ -37,6 +37,7 @@ gem 'bootstrap-will_paginate', '0.0.10'
 gem 'rqrcode'
 gem 'rqrcode_png'
 gem 'chunky_png'
+gem 'mini_magick', '4.5.1'
 gem 'dragonfly', '~> 1.0.12'
 
 # Use Capistrano for deployment
