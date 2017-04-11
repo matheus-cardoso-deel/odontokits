@@ -12,33 +12,53 @@ gem 'uglifier', '3.0.0'
 gem 'coffee-rails', '4.2.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+#ANGULAR
+
+# Injects Angular.js into your asset pipeline as well as other Angular modules.
 gem 'angularjs-rails'
+# Use your angular templates with rails' asset pipeline
 gem 'angular-rails-templates'
 
-#gem 'dotiw', '3.1.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.1.1'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '5.0.1'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '2.4.1'
 gem 'bootstrap-sass', '3.3.6'
 gem 'jquery-turbolinks', '2.1.0'
+
+# JSON API
+
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '2.4.1'
+# A pure ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
 gem 'jwt'
+# Easy way to build and manage commands (service objects)
 gem 'simple_command'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
+
 gem 'bcrypt', '~> 3.1.11'
 gem 'faker', '1.6.6'
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 
+# IMAGE MANIPULATION
+
+# rQRCode is a library for encoding QR Codes.
 gem 'rqrcode'
-gem 'rqrcode_png'
+# Read/write access to PNG images in pure Ruby.
 gem 'chunky_png'
+#Glues rQRCode together with chunky_png
+gem 'rqrcode_png'
+# Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick
 gem 'mini_magick', '4.5.1'
+# Dragonfly is a framework that enables on-the-fly processing for any content type. It is especially suited to image handling.
 gem 'dragonfly', '~> 1.0.12'
+# S3 data store for Dragonfly
+gem 'dragonfly-s3_data_store', '~> 1.2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

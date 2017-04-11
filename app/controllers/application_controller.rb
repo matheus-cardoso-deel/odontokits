@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   #skip_before_filter :verify_authenticity_token
   include SessionsHelper
   
-  attr_reader :current_api_user
+  attr_reader :current_api_user ##QUEISSO?? - Tirar?
   
     private
 
