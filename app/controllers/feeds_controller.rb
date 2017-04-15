@@ -1,6 +1,6 @@
 class FeedsController < ApplicationController
   
-  before_action :authenticate_request, only: [:create]
+  before_action :authenticate_request, only: [:create], if: -> { json_request? }
   
   def index
     @feeds = Feed.paginate(page: params[:page])
@@ -22,4 +22,9 @@ class FeedsController < ApplicationController
     def feed_params
       params.require(:feed).permit(:tipo)
     end
+    
+    def json_request?
+      request.format.json?
+    end
+      
 end
