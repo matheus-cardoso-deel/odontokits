@@ -8,12 +8,18 @@ Dragonfly.app.configure do
 
   url_format "/media/:job/:name"
 
-  datastore :s3_data_store,
-    bucket_name: 'odontokits',
-    access_key_id: 'AKIAJHZU42DAP7UWL3HQ',
-    secret_access_key: '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',
-    region: 'sa-east-1',
-    url_scheme: 'https'
+  if Rails.env.development? || Rails.env.test?
+    datastore :file,
+      root_path: Rails.root.join('public/system/dragonfly', Rails.env),
+      server_root: Rails.root.join('public')
+  else
+    datastore :s3,
+      bucket_name: 'odontokits',
+      access_key_id: 'AKIAJHZU42DAP7UWL3HQ',
+      secret_access_key: '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',
+      region: 'sa-east-1',
+      url_scheme: 'https'
+  end
 end
 
 # Logger

@@ -25,4 +25,3 @@
 
 # Ignore Dragonfly RQRCode Generated Images
 /public/system/dragonfly
-/config/initializers/dragonfly.rb
