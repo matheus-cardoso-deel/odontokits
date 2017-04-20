@@ -66,6 +66,22 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    compass (1.0.3)
+      chunky_png (~> 1.2)
+      compass-core (~> 1.0.2)
+      compass-import-once (~> 1.0.5)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      sass (>= 3.3.13, < 3.5)
+    compass-core (1.0.3)
+      multi_json (~> 1.0)
+      sass (>= 3.3.0, < 3.5)
+    compass-import-once (1.0.5)
+      sass (>= 3.2, < 3.5)
+    compass-rails (3.0.2)
+      compass (~> 1.0.0)
+      sass-rails (< 5.1)
+      sprockets (< 4.0)
     concurrent-ruby (1.0.4)
     debug_inspector (0.0.2)
     dragonfly (1.0.12)
@@ -257,6 +273,7 @@ DEPENDENCIES
   byebug (= 9.0.0)
   chunky_png
   coffee-rails (= 4.2.1)
+  compass-rails
   dragonfly (~> 1.0.12)
   dragonfly-s3_data_store (~> 1.2)
   faker (= 1.6.6)

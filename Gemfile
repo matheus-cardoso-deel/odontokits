@@ -66,6 +66,7 @@ gem 'dragonfly-s3_data_store', '~> 1.2'
 gem 'pdfkit'
 gem 'render_anywhere'
 gem 'wkhtmltopdf-binary'
+gem 'compass-rails'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
