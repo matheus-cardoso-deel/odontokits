@@ -8,7 +8,6 @@ class KitsController < ApplicationController
     
     def show
       @kit = Kit.find(params[:id])
-      @aluno = Aluno.find(@kit.aluno_id) #not really necessary (just for the title of the page)
       @feeds = @kit.feeds.paginate(page: params[:page], :per_page => 5)
     end
     

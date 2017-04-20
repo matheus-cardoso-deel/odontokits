@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :alunos do
     resources :kits,              shallow: :true, except: [:index] do
       resources :feeds,              shallow: :true, only: [:create, :index]
+      resource :download, only: [:show]
     end
   end
   

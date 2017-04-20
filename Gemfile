@@ -63,6 +63,10 @@ gem 'dragonfly-s3_data_store', '~> 1.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'pdfkit'
+gem 'render_anywhere'
+gem 'wkhtmltopdf-binary'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '1.3.12'

@@ -1,4 +1,4 @@
-<% provide(:title, @aluno.nome + "'s " + @kit.nome) %>
+<% provide(:title, @kit.aluno.nome + "'s " + @kit.nome) %>
 <div class="row">
   <aside class="col-md-4">
 
@@ -7,10 +7,21 @@
           <%= link_to image_tag("toolbox-icon.png", size:"50", alt: "Kit Image"), '#' %>
           <%= @kit.nome %>
       </h1>
-      
-    <%= link_to image_tag(@kit.image.url, alt: "QRCODE", class: 'img-thumbnail', id: "margem"),
-    @kit.image.url, target: '_blank' %>
+      <div class="img-thumbnail", id="margem"> 
+          <%= link_to image_tag(@kit.image.url, alt: "QRCODE", class: "gravatar"),
+          @kit.image.url, target: '_blank' %>
+          <container>
+              <b>Nome: </b> <%= @kit.aluno.nome %>
+              </br>
+              <b>Curso: </b> <%= "Odontolasdaogia Odontolasdaogia Odontolasdaogia Odontolasdaogia" %>
+              </br>
+              <b>Kit: </b> <%= @kit.nome %>
+          </container>
+      </div>
     </section>
+    <div style="margin-left: 80px">
+      <%= link_to "Download Etiqueta", kit_download_path(@kit, format: "pdf"), target: "_blank", class: "btn btn-lg btn-primary" %>
+    </div>
   </aside>
     <div class="col-md-8">
     <h3>Histórico de Transações para <%= @kit.nome %> (<%= @kit.feeds.count %>)</h3>
