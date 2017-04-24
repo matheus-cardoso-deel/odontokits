@@ -27,6 +27,12 @@ class AlunosController < ApplicationController
     @feeds = @aluno.feeds.paginate(page: params[:page], :per_page => 3)
   end
   
+  def destroy
+    Aluno.find(params[:id]).destroy
+    flash[:success] = "Aluno excluído!"
+    redirect_to alunos_url
+  end
+  
   private
   
     def aluno_params
