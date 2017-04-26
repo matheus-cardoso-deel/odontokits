@@ -6,6 +6,12 @@
       <h1>
           <%= link_to image_tag("toolbox-icon.png", size:"50", alt: "Kit Image"), '#' %>
           <%= @kit.nome %>
+          <% if current_user.admin? %>
+            <!-- <%= link_to "Editar Kit", edit_kit_path(@kit), class: 'btn btn-primary', style: 'float: right' %>
+             <br> -->
+             <%= link_to "Excluir Kit", @kit, #analogous kit_path(@kit)
+             method: :delete, data: { confirm: "Você tem certeza que deseja excluir #{@kit.nome}?" }, class: 'btn btn-danger', style: 'float: right' %>
+          <% end %>
       </h1>
       <div class="img-thumbnail", id="margem"> 
           <%= link_to image_tag(@kit.image.url, alt: "QRCODE", class: "gravatar"),
@@ -23,7 +29,7 @@
       <%= link_to "Download Etiqueta", kit_download_path(@kit, format: "pdf"), target: "_blank", class: "btn btn-lg btn-primary" %>
     </div>
   </aside>
-    <div class="col-md-8">
+    <div class="col-md-8">  
     <h3>Histórico de Transações para <%= @kit.nome %> (<%= @kit.feeds.count %>)</h3>
     <% if @kit.feeds.any? %>
       <ol class="feeds">

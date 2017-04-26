@@ -9,7 +9,7 @@ class KitTagPdf
  
   def to_pdf
     pdf_kit = PDFKit.new(as_html, page_size: 'A4')
-    pdf_kit.to_file("#{Rails.root}/public/kit.pdf")
+    pdf_kit.to_file("#{Rails.root}/public/kit.pdf") # Converts to pdf
   end
  
   def filename

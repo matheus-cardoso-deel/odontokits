@@ -12,6 +12,13 @@
       <h1>
         <%= @aluno.matricula %>
       </h1>
+      <div style='margin-top:40px'>
+        <% if current_user.admin? %>
+           <%= link_to "Editar Aluno", edit_aluno_path(@aluno), class: 'btn btn-primary', style: 'float: left; margin-right:10px' %>
+           <%= link_to "Excluir Aluno", @aluno, #analogous aluno_path(@aluno)
+           method: :delete, data: { confirm: "Você tem certeza que deseja excluir o aluno #{@aluno.nome}?" }, class: 'btn btn-danger', style: 'float: left' %>
+        <% end %>
+      </div>
     </section>
   </aside>
   <div class="col-md-8">

@@ -25,3 +25,6 @@
 
 # Ignore Dragonfly RQRCode Generated Images
 /public/system/dragonfly
+
+# Ignore Generated PDF
+public/kit.pdf

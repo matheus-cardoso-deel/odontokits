@@ -33,6 +33,29 @@ class KitsController < ApplicationController
       end
     end
     
+    def destroy
+      aluno = Kit.find(params[:id]).aluno
+      Kit.find(params[:id]).destroy
+      flash[:success] = "Kit excluído!"
+      redirect_to aluno
+    end
+    
+    def edit
+    @kit = Kit.find(params[:id])
+    @aluno = @kit.aluno
+    end
+    
+    def update
+      @kit = Kit.find(params[:id])
+      @aluno = @kit.aluno
+      if @kit.update_attributes(kit_params)
+        flash[:success] = "Kit atualizado"
+        redirect_to @kit    
+      else
+      render 'edit'
+      end
+    end
+    
     private
  
       def kit_params
