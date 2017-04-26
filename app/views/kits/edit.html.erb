@@ -1,0 +1,31 @@
+<% provide(:title, 'Editar Kit') %>
+<% provide(:button_text, 'Confirmar Alterações') %>
+<% provide(:path, kit_path(@kit)) %>
+
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= link_to (gravatar_for_aluno @aluno), @aluno %>
+        <%= link_to @aluno.nome, @aluno %>
+      </h1>
+      <h1>
+        <%= @aluno.email %>
+      </h1>     
+      <h1>
+        <%= @aluno.matricula %>
+      </h1>
+    </section>
+  </aside>
+    <div class="col-md-6">
+      <h1> Editar kit </h1>
+      <h1>
+        <%=  @kit.nome %>
+        <%= link_to image_tag(@kit.image.url, alt: "QRCODE"),
+          @kit.image.url, target: '_blank' %>
+      </h1>
+      <div>
+        <%= render 'form_kit' %>
+      </div>
+    </div>
+</div>

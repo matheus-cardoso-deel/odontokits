@@ -33,6 +33,20 @@ class AlunosController < ApplicationController
     redirect_to alunos_url
   end
   
+  def edit
+    @aluno = Aluno.find(params[:id])
+  end
+  
+  def update
+    @aluno = Aluno.find(params[:id])
+    if @aluno.update_attributes(aluno_params)
+      flash[:success] = "Aluno atualizado"
+      redirect_to @aluno    
+    else
+    render 'edit'
+    end
+  end
+  
   private
   
     def aluno_params
