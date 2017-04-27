@@ -14,9 +14,9 @@ Dragonfly.app.configure do
       server_root: Rails.root.join('public')
   else
     datastore :s3,
-      bucket_name: 'odontokits',
-      access_key_id: 'AKIAJHZU42DAP7UWL3HQ',
-      secret_access_key: '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',
+      bucket_name: ENV['S3_BUCKET'],
+      access_key_id: ENV['S3_ACCESS_KEY'],
+      secret_access_key: ENV['S3_SECRET_KEY'],
       region: 'sa-east-1',
       url_scheme: 'https'
   end
