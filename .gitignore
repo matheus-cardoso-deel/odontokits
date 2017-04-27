@@ -27,4 +27,4 @@
 /public/system/dragonfly
 
 # Ignore Generated PDF
-public/kit.pdf
+/public/kit.pdf
