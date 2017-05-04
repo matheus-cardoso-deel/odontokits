@@ -1,6 +1,6 @@
 require "render_anywhere"
  
-class KitTagPdf
+class KitTagPdf #Why in models? -> Why not?
   include RenderAnywhere
  
   def initialize(kit)
