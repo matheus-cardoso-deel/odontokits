@@ -34,11 +34,7 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    if user_params[:password].blank? || (user_params[:password] != user_params[:password_confirmation])
-      flash.now[:danger] = "Password inválido"
-      render 'edit'
-      return
-    elsif @user.update_attributes(user_update_params)
+    if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user    
     else
@@ -57,10 +53,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
-    end
-    
-    def user_update_params
-      params.require(:user).permit(:name, :email)
     end
     
         # Confirms the correct user.
