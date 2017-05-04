@@ -1,6 +1,10 @@
 <% provide(:title, 'Alunos') %>
 <h1>Alunos</h1>
 
+<div>
+  <%= link_to "Cadastrar Aluno", new_aluno_path, class: "btn btn-lg btn-primary", style: "margin-left:30px"%>
+</div>
+
 <%= will_paginate %>
 
 <ul class="users">
