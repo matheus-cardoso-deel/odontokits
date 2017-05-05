@@ -1,6 +1,6 @@
 class AlunosController < ApplicationController
   
- # before_action :logged_in_user, only: [:index, :create, :new, :show]
+   before_action :logged_in_user
 
   def index
     @alunos = Aluno.paginate(page: params[:page])

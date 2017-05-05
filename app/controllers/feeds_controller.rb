@@ -1,5 +1,6 @@
 class FeedsController < ApplicationController
   
+  before_action :logged_in_user, if: -> { !json_request? }
   before_action :authenticate_request, only: [:create], if: -> { json_request? }
   
   def index
