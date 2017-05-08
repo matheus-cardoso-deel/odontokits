@@ -14,7 +14,7 @@
       </h1>
       <div style='margin-top:40px'>
         <% if current_user.admin? %>
-           <%= link_to "Editar Aluno", edit_aluno_path(@aluno), class: 'btn btn-primary', style: 'float: left; margin-right:10px' %>
+           <%= link_to "Editar Informações de Aluno", edit_aluno_path(@aluno), class: 'btn btn-primary', style: 'float: left; margin-right:10px' %>
            <%= link_to "Excluir Aluno", @aluno, #analogous aluno_path(@aluno)
            method: :delete, data: { confirm: "Você tem certeza que deseja excluir o aluno #{@aluno.nome}?" }, class: 'btn btn-danger', style: 'float: left' %>
         <% end %>
@@ -24,13 +24,13 @@
   <div class="col-md-8">
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Kits</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Histórico</a></li>
+    <li role="presentation" class="active"><a href="#kits" aria-controls="kits" role="tab" data-toggle="tab">Kits</a></li>
+    <li role="presentation"><a href="#historico" aria-controls="historico" role="tab" data-toggle="tab">Histórico</a></li>
   </ul>
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">
+    <div role="tabpanel" class="tab-pane active" id="kits">
       <% if @aluno.kits.any? %>
         <h3>Kits Cadastrados (<%= @aluno.kits.count %>)   <%= link_to "Cadastrar Kit", new_aluno_kit_path(@aluno), class: "btn btn-lg btn-primary" %> </h3>
         <ol class="feeds">
@@ -39,7 +39,7 @@
         <%= will_paginate @kits %>
       <% end %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="profile">          
+    <div role="tabpanel" class="tab-pane" id="historico">          
       <% if @aluno.feeds.any? %>
         <h3>Histórico de Transações para <%= @aluno.nome %> (<%= @aluno.feeds.count %>)</h3>
         <ol class="feeds">

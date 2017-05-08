@@ -50,7 +50,12 @@ class AlunosController < ApplicationController
   private
   
     def aluno_params
-      params.require(:aluno).permit(:nome, :email, :matricula)
+      if params[:aluno][:password].blank? || params[:aluno][:password_confirmation].blank?
+        params[:aluno][:password] = '123456'
+        params[:aluno][:password_confirmation] = '123456'
+      end
+      params.require(:aluno).permit(:nome, :email, :matricula,
+      :password, :password_confirmation)
     end
   
 end

@@ -14,7 +14,9 @@ User.create!(name:  "Matheus Admin",
              
 Aluno.create!(nome: "Matheus Campos Cardoso",
               email: "its.matheus3@gmail.com",
-              matricula: "2012939548")
+              matricula: "2012939548",
+              password: "123456",
+              password_confirmation: "123456")
 
 99.times do |n|
   name  = Faker::Name.name
@@ -32,7 +34,9 @@ end
   matricula = Faker::Number.number(10)
   Aluno.create!(nome:  nome,
                email: email,
-               matricula: matricula)
+               matricula: matricula,
+               password: "123456",
+               password_confirmation: "123456")
 end
 
 alunos = Aluno.order(:created_at).take(6)
