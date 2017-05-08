@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   
-  post 'authenticate', to: 'authentication#authenticate'
+  post 'authenticate_user', to: 'authentication#authenticate_user'
+  post 'authenticate_aluno', to: 'authentication#authenticate_aluno'
+
 
   resources :users
   resources :alunos do
