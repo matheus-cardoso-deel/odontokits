@@ -9,7 +9,7 @@ class FeedsController < ApplicationController
   
   def create
     @kit = Kit.find(params[:kit_id])
-    @feed = @kit.feeds.build(feed_params)
+    @feed = @kit.feeds.build(params[:tipo])
     if @feed.save
       render json: { status: "Success" } , status: 200
       # Handle a successful save.
@@ -19,10 +19,6 @@ class FeedsController < ApplicationController
   end
   
   private
-  
-    def feed_params
-      params.require(:feed).permit(:tipo)
-    end
     
     def json_request?
       request.format.json?
