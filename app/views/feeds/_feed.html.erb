@@ -1,12 +1,12 @@
 <li id="feed-<%= feed.id %>">
   <div class="row">
     <aside class="col-md-6">  
-      <% if feed.texto == "Entrada" %>
+      <% if feed.tipo == "Entrada" %>
         <%= link_to image_tag("entrada.png", size:"40", alt: "Feed Image", class:"gravatar"), feed.kit %>
       <% else %>
         <%= link_to image_tag("saida.png", size:"40", alt: "Feed Image", class:"gravatar"), feed.kit %>
       <% end %>
-      <span class="user"><b> <%= feed.texto %> </b>  - Setor de Esterelização DOD/CCS</span>
+      <span class="user"><b> <%= feed.tipo %> </b>  - Setor de Esterelização DOD/CCS</span>
       <br>
       <%= link_to Kit.find(feed.kit_id).nome, feed.kit %>
       <span class="timestamp">

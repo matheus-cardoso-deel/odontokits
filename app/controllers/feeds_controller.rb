@@ -9,7 +9,7 @@ class FeedsController < ApplicationController
   
   def create
     @kit = Kit.find(params[:kit_id])
-    @feed = @kit.feeds.build(params[:tipo])
+    @feed = @kit.feeds.build(tipo: params[:tipo])
     if @feed.save
       render json: { status: "Success" } , status: 200
       # Handle a successful save.
