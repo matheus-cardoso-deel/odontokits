@@ -14,7 +14,7 @@ class FeedsController < ApplicationController
       render json: { status: "Success" } , status: 200
       # Handle a successful save.
     else
-      redirect_to root_path
+      render json: { error: command.errors }, status: :unauthorized
     end
   end
   

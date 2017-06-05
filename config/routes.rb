@@ -25,10 +25,10 @@ Rails.application.routes.draw do
   resources :users
   resources :alunos do
     resources :kits,              shallow: :true, except: [:index] do
-      resources :feeds,              shallow: :true, only: [:create, :index]
       resource :download, only: [:show]
     end
   end
+  resources :feeds, only: [:create, :index]
   
   get '/kits', to: 'kits#index'
 
