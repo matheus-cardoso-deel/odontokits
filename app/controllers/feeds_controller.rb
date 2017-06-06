@@ -10,7 +10,12 @@ class FeedsController < ApplicationController
   def create
     @kit = Kit.find(params[:kit_id])
     @feed = @kit.feeds.build(tipo: params[:tipo])
-    if (@kit.feeds.first.tipo != @feed.tipo) && @feed.save
+    
+    if @kit.feeds.count < 1 && @feed.tipo == "Entrada" && @feed.save
+        render json: { status: "Success" } , status: 200
+        return
+      # Handle a successful first save.
+    elsif @kit.feeds.count >= 1 && (@kit.feeds.first.tipo != @feed.tipo) && @feed.save
       render json: { status: "Success" } , status: 200
       # Handle a successful save.
     else

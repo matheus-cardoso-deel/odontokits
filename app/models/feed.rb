@@ -8,7 +8,15 @@ class Feed < ApplicationRecord
     if tipo.downcase == "entrada"
       "Entrada"
     else
+      "Saida"
+    end
+  end
+  
+  def tipo_utf8
+    if tipo == "Saida"
       "Saída"
+    else
+      "Entrada"
     end
   end
   

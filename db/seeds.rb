@@ -48,7 +48,7 @@ alunos = Aluno.order(:created_at).take(6)
     resize(150, 150)
     aluno.kits.create!(nome: nome, image: qr_code_img.to_string)
     aluno.kits.first.feeds.create!(tipo: "Entrada")
-    aluno.kits.first.feeds.create!(tipo: "Saída")
+    aluno.kits.first.feeds.create!(tipo: "Saida")
   end
   }
 end
@@ -68,7 +68,7 @@ resize(150, 150)
 aluno_matheus.kits.create!(nome: "Kit Higiênico", image: qr_code_img.to_string)
 
 aluno_matheus.kits.first.feeds.create!(tipo: "Entrada")
-aluno_matheus.kits.first.feeds.create!(tipo: "Saída")
+aluno_matheus.kits.first.feeds.create!(tipo: "Saida")
 aluno_matheus.kits.first.feeds.create!(tipo: "Entrada")
-aluno_matheus.kits.first.feeds.create!(tipo: "Saída")
+aluno_matheus.kits.first.feeds.create!(tipo: "Saida")
 
