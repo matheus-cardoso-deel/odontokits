@@ -31,22 +31,18 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="kits">
-      <% if @aluno.kits.any? %>
-        <h3>Kits Cadastrados (<%= @aluno.kits.count %>)   <%= link_to "Cadastrar Kit", new_aluno_kit_path(@aluno), class: "btn btn-lg btn-primary" %> </h3>
+      <h3>Kits Cadastrados (<%= @aluno.kits.count %>)   <%= link_to "Cadastrar Kit", new_aluno_kit_path(@aluno), class: "btn btn-lg btn-primary" %> </h3>
         <ol class="feeds">
           <%= render @kits %>
         </ol>
         <%= will_paginate @kits %>
-      <% end %>
     </div>
     <div role="tabpanel" class="tab-pane" id="historico">          
-      <% if @aluno.feeds.any? %>
         <h3>Histórico de Transações para <%= @aluno.nome %> (<%= @aluno.feeds.count %>)</h3>
         <ol class="feeds">
           <%= render @feeds %>
         </ol>
         <%= will_paginate @feeds %>
-      <% end %>
     </div>
   </div>
   
