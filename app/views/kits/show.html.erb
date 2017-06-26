@@ -7,10 +7,10 @@
           <%= link_to image_tag("toolbox-icon.png", size:"50", alt: "Kit Image"), '#' %>
           <%= @kit.nome %>
           <% if current_user.admin? %>
-            <!-- <%= link_to "Editar Kit", edit_kit_path(@kit), class: 'btn btn-primary', style: 'float: right' %>
-             <br> -->
+             <%= link_to "Editar Kit", edit_kit_path(@kit), class: 'btn btn-primary', style: 'float: right'%>
+             <br>
              <%= link_to "Excluir Kit", @kit, #analogous kit_path(@kit)
-             method: :delete, data: { confirm: "Você tem certeza que deseja excluir #{@kit.nome}?" }, class: 'btn btn-danger', style: 'float: right' %>
+             method: :delete, data: { confirm: "Você tem certeza que deseja excluir #{@kit.nome}?" }, class: 'btn btn-danger', style: 'float: right'%>
           <% end %>
       </h1>
       <div class="img-thumbnail", id="margem"> 
