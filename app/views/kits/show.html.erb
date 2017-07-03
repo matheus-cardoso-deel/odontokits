@@ -16,13 +16,11 @@
       <div class="img-thumbnail", id="margem"> 
           <%= link_to image_tag(@kit.image.url, alt: "QRCODE", class: "gravatar"),
           @kit.image.url, target: '_blank' %>
-          <container>
-              <b>Nome: </b> <%= @kit.aluno.nome %>
+              <b id="teste">Nome: </b> <%= @kit.aluno.nome %>
               </br>
-              <b>Curso: </b> <%= "Odontolasdaogia Odontolasdaogia Odontolasdaogia Odontolasdaogia" %>
+              <b>Período: </b> <%= "1" %>
               </br>
               <b>Kit: </b> <%= @kit.nome %>
-          </container>
       </div>
     </section>
     <div style="margin-left: 80px">
