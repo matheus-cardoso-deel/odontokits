@@ -19,7 +19,7 @@ class FeedsController < ApplicationController
       render json: { status: "Success" } , status: 200
       # Handle a successful save.
     else
-      render json: { status: "Unauthorized" }, status: :unauthorized
+      render json: { status: "Bad Request" }, status: :bad_request
     end
   end
   
