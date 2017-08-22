@@ -10,14 +10,16 @@ class FeedsController < ApplicationController
   def create
     @kit = Kit.find(params[:kit_id])
     @feed = @kit.feeds.build(tipo: params[:tipo])
-    
+
+    # Handle a successful first save.
     if @kit.feeds.count < 1 && @feed.tipo == "Entrada" && @feed.save
-        render json: { status: "Success" } , status: 200
+        AlunoMailer.receipt_email(@feed).deliver_later
+        render json: { status: "success" } , status: 200
         return
-      # Handle a successful first save.
+    # Handle a successful save.
     elsif @kit.feeds.count >= 1 && (@kit.feeds.first.tipo != @feed.tipo) && @feed.save
-      render json: { status: "Success" } , status: 200
-      # Handle a successful save.
+      AlunoMailer.receipt_email(@feed).deliver_later
+      render json: { status: "success" } , status: 200
     else
       render json: { status: "Bad Request" }, status: :bad_request
     end

@@ -18,7 +18,7 @@ class AuthenticateAluno
     aluno = Aluno.find_by_matricula(matricula) 
     return aluno if aluno && aluno.authenticate(password)
     
-    errors.add :user_authentication, 'invalid credentials' 
+    errors.add :aluno_authentication, 'invalid credentials' 
     nil 
   end
   

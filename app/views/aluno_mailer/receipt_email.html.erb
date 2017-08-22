@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Comprovante de Movimentação de Item - Setor de Esterelização</h1>
+    <p>
+      O item <%= @kit.nome %> efetuou <%= @feed.tipo %> no sistema em
+      <%= Time.now.strftime("%d/%m/%Y às %T") %>.<br>
+    </p>
+    <p>
+      Comprovante n˚ <%= @feed.id %>.
+    </p>
+  </body>
+</html>

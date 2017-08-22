@@ -28,3 +28,6 @@
 
 # Ignore Generated PDF
 /public/kit.pdf
+
+# Ignore ENV variables
+.env

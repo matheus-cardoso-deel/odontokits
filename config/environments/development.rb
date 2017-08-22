@@ -53,5 +53,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
   #config.time_zone = 'Pacific Time (US & Canada)'
+  config.action_mailer.delivery_method = :letter_opener
 
 end

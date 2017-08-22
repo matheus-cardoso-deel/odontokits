@@ -14,7 +14,7 @@ class AuthenticationController < ApplicationController
     command = AuthenticateAluno.call(params[:matricula], params[:password])
 
     if command.success?
-      render json: { status: "Success" } , status: 200
+      render json: { status: "success" } , status: 200
     else
       render json: { error: command.errors }, status: :unauthorized
     end
