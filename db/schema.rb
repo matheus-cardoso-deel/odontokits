@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504153543) do
+ActiveRecord::Schema.define(version: 20170825052556) do
 
   create_table "alunos", force: :cascade do |t|
     t.string   "image_uid"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170504153543) do
     t.string   "matricula"
     t.string   "email"
     t.string   "password_digest"
+    t.integer  "periodo"
     t.index ["email"], name: "index_alunos_on_email", unique: true
     t.index ["matricula"], name: "index_alunos_on_matricula", unique: true
   end

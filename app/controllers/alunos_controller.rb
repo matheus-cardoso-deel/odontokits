@@ -23,7 +23,7 @@ class AlunosController < ApplicationController
   
   def show
     @aluno = Aluno.find(params[:id])
-    @kits = @aluno.kits.paginate(page: params[:page], :per_page => 3)
+    @kits = @aluno.kits.paginate(page: params[:page], :per_page => 4)
     @feeds = @aluno.feeds.paginate(page: params[:page], :per_page => 3)
   end
   
@@ -36,6 +36,10 @@ class AlunosController < ApplicationController
   def edit
     @aluno = Aluno.find(params[:id])
   end
+
+  def edit_password
+    @aluno = Aluno.find(params[:aluno_id])
+  end
   
   def update
     @aluno = Aluno.find(params[:id])
@@ -46,16 +50,22 @@ class AlunosController < ApplicationController
     render 'edit'
     end
   end
+
+  def update_password
+    @aluno = Aluno.find(params[:aluno_id])
+    if @aluno.update_attributes(aluno_params)
+      flash[:success] = "Senha atualizada"
+      redirect_to @aluno    
+    else
+    render 'edit_password'
+    end
+  end
   
   private
   
     def aluno_params
-      if params[:aluno][:password].blank? || params[:aluno][:password_confirmation].blank?
-        params[:aluno][:password] = '123456'
-        params[:aluno][:password_confirmation] = '123456'
-      end
       params.require(:aluno).permit(:nome, :email, :matricula,
-      :password, :password_confirmation)
+        :periodo, :password, :password_confirmation)
     end
   
 end

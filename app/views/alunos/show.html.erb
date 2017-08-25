@@ -17,6 +17,7 @@
            <%= link_to "Editar Informações de Aluno", edit_aluno_path(@aluno), class: 'btn btn-primary', style: 'float: left; margin-right:10px' %>
            <%= link_to "Excluir Aluno", @aluno, #analogous aluno_path(@aluno)
            method: :delete, data: { confirm: "Você tem certeza que deseja excluir o aluno #{@aluno.nome}?" }, class: 'btn btn-danger', style: 'float: left' %>
+           <%= link_to "Redefinir Senha de Aluno", aluno_edit_password_path(@aluno), class: 'btn btn-info', style: 'margin-left:60px; margin-top:10px' %>
         <% end %>
       </div>
     </section>

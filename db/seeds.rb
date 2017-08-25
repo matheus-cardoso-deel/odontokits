@@ -15,6 +15,7 @@ User.create!(name:  "Matheus Admin",
 Aluno.create!(nome: "Matheus Campos Cardoso",
               email: "its.matheus3@gmail.com",
               matricula: "2012939548",
+              periodo: 9,
               password: "123456",
               password_confirmation: "123456")
 
@@ -35,6 +36,7 @@ end
   Aluno.create!(nome:  nome,
                email: email,
                matricula: matricula,
+               periodo: 10,
                password: "123456",
                password_confirmation: "123456")
 end

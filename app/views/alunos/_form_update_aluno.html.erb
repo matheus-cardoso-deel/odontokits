@@ -10,15 +10,9 @@
   
   <%= f.label :matricula %>
   <%= f.text_field :matricula, class: 'form-control' %>
-  
+
   <%= f.label :periodo %>
-  <%= f.number_field :periodo, class: 'form-control' %>
-
-  <%= f.label :senha %>
-  <%= f.password_field :password, class: 'form-control' %>
-
-  <%= f.label :confirmação_de_senha %>
-  <%= f.password_field :password_confirmation, class: 'form-control' %>
+  <%= f.text_field :periodo, class: 'form-control' %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
