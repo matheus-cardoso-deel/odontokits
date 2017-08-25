@@ -16,15 +16,17 @@
       <div class="img-thumbnail", id="margem"> 
           <%= link_to image_tag(@kit.image.url, alt: "QRCODE", class: "gravatar"),
           @kit.image.url, target: '_blank' %>
-              <b id="teste">Nome: </b> <%= @kit.aluno.nome %>
-              </br>
-              <b>Período: </b> <%= "1" %>
-              </br>
+              <b style="visibility:hidden">Nome: this is just to fill in</b>
+              <br>
+              <b>Nome: </b> <%= @kit.aluno.nome %>
+              <br>
+              <b>Período: </b> <%= @kit.aluno.periodo %>
+              <br>
               <b>Kit: </b> <%= @kit.nome %>
       </div>
     </section>
     <div style="margin-left: 80px">
-      <%= link_to "Download Etiqueta", kit_download_path(@kit, format: "pdf"), target: "_blank", class: "btn btn-lg btn-primary" %>
+      <%= link_to "Gerar Etiqueta", kit_download_path(@kit, format: "pdf"), target: "_blank", class: "btn btn-lg btn-primary" %>
     </div>
   </aside>
     <div class="col-md-8">  

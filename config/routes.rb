@@ -21,9 +21,10 @@ Rails.application.routes.draw do
   post 'authenticate_user', to: 'authentication#authenticate_user'
   post 'authenticate_aluno', to: 'authentication#authenticate_aluno'
 
-
   resources :users
   resources :alunos do
+    get 'edit_password', to: 'alunos#edit_password'
+    patch 'update_password', to: 'alunos#update_password'
     resources :kits,              shallow: :true, except: [:index] do
       resource :download, only: [:show]
     end
