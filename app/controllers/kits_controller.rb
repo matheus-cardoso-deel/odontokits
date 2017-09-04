@@ -23,8 +23,8 @@ class KitsController < ApplicationController
 
       if @kit.save
         # NOM:Bruno C. Cardoso;MAT:2012939548;PER:7;KIT:17;ITM:Caixa com pano
-        content = 'NOM:' + @aluno.nome + 'MAT:' + @aluno.matricula + 'PER:' +
-        @aluno.periodo.to_s + 'KIT:' + @kit.id.to_s + 'ITM:' + @kit.nome
+        content = 'NOM:' + @aluno.nome + ';MAT:' + @aluno.matricula + ';PER:' +
+        @aluno.periodo.to_s + ';KIT:' + @kit.id.to_s + ';ITM:' + @kit.nome
       
         qr_code_img = RQRCode::QRCode.new(content, :size => 7, :level => :h).to_img.
         resize(150, 150)
