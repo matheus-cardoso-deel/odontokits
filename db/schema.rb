@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170825052556) do
     t.string   "matricula"
     t.string   "email"
     t.string   "password_digest"
-    t.integer  "periodo"
+    t.string   "periodo"
     t.index ["email"], name: "index_alunos_on_email", unique: true
     t.index ["matricula"], name: "index_alunos_on_matricula", unique: true
   end
