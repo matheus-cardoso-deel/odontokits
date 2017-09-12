@@ -3,22 +3,22 @@
   <%= render 'shared/error_messages', object: f.object %>
 
   <%= f.label :nome %>
-  <%= f.text_field :nome, class: 'form-control' %>
+  <%= f.text_field :nome, value: nil, class: 'form-control' %>
   
   <%= f.label :email %>
-  <%= f.text_field :email, class: 'form-control' %>
+  <%= f.text_field :email, value: nil, class: 'form-control' %>
   
   <%= f.label :matricula %>
-  <%= f.text_field :matricula, class: 'form-control' %>
+  <%= f.text_field :matricula, value: nil, class: 'form-control' %>
   
   <%= f.label :periodo %>
-  <%= f.text_field :periodo, class: 'form-control' %>
+  <%= f.text_field :periodo, value: nil, class: 'form-control' %>
 
   <%= f.label :senha %>
-  <%= f.password_field :password, class: 'form-control' %>
+  <%= f.password_field :password, value: nil, class: 'form-control' %>
 
   <%= f.label :confirmação_de_senha %>
-  <%= f.password_field :password_confirmation, class: 'form-control' %>
+  <%= f.password_field :password_confirmation, value: nil, class: 'form-control' %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

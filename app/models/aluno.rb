@@ -1,6 +1,7 @@
 class Aluno < ApplicationRecord
   has_many :kits, dependent: :destroy
   has_many :feeds, :through => :kits
+  default_scope -> { order(nome: :asc) }
   before_save { self.email = email.downcase }
   
   validates(:nome, presence: true, length: { maximum: 50 })

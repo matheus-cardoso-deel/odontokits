@@ -3,15 +3,20 @@
 
 <div>
   <%= link_to "Cadastrar Aluno", new_aluno_path, class: "btn btn-lg btn-primary", style: "margin-left:30px"%>
+
+<%= search_form_for @q, :html => { style: 'display: flex; margin: 2em' } do |f| %>
+	<%= f.search_field :nome_cont, class: 'form-control', style:'width:300px', placeholder: 'Pesquisar Aluno...' %>
+	<%= f.submit 'Pesquisar', class: "btn btn-primary", style: 'width: 200px; margin-left:10px;
+	margin-bottom:1em' %>
+<% end %>
 </div>
 
-<%= will_paginate %>
 
 <ul class="users">
   <%= render @alunos %>
+  <%= will_paginate %>
 </ul>
 
-<%= will_paginate %>
 
 <script>
   localStorage.clear(); // not really necessary, just clear the tabs that've been stored on the alunos show page

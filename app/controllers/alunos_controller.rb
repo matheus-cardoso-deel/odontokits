@@ -3,7 +3,9 @@ class AlunosController < ApplicationController
    before_action :logged_in_user
 
   def index
-    @alunos = Aluno.paginate(page: params[:page])
+    #@alunos = Aluno.paginate(page: params[:page])
+    @q = Aluno.ransack(params[:q])
+    @alunos = @q.result(distinct: true).paginate(page: params[:page], :per_page => 10)
   end
   
   def create
