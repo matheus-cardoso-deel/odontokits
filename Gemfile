@@ -69,6 +69,7 @@ gem 'wkhtmltopdf-binary'
 gem 'compass-rails'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'ransack'
+gem 'newrelic_rpm'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
