@@ -21,16 +21,14 @@ class KitsController < ApplicationController
       @aluno = Aluno.find_by(id: params[:aluno_id])
       @kit = @aluno.kits.build(kit_params)
 
-      if @kit.save
-        # NOM:Bruno C. Cardoso;MAT:2012939548;PER:7;KIT:17;ITM:Caixa com pano
-        content = 'NOM:' + @aluno.nome + ';MAT:' + @aluno.matricula + ';PER:' +
-        @aluno.periodo.to_s + ';KIT:' + @kit.id.to_s + ';ITM:' + @kit.nome
+      content = @aluno.matricula + ';' + @kit.nome.to_s
       
-        qr_code_img = RQRCode::QRCode.new(content, :size => 12, :level => :h).to_img.
-        resize(150, 150)
-      
-        @kit.update_attribute :image, qr_code_img.to_string
+      qr_code_img = RQRCode::QRCode.new(content, :size => 3, :level => :h).to_img.
+      resize(150, 150)
 
+      if @kit.save && (@kit.update_attribute :image, qr_code_img.to_string)
+        # 2012939548;17
+  
         flash[:success] = "Kit created!"
         redirect_to @aluno
       else
