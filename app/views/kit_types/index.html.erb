@@ -1,0 +1,10 @@
+<% provide(:title, 'Tipos de Caixa') %>
+<h1>Tipos de Caixa</h1>
+
+<div>
+    <%= link_to "Cadastrar Tipo de Caixa", new_kit_type_path, class: "btn btn-lg btn-primary", style: "margin-left:30px; margin-bottom:30px"%>
+</div>
+
+<ul class="users">
+    <%= render @kit_types %>
+</ul>

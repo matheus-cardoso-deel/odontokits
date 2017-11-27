@@ -21,18 +21,17 @@ class KitsController < ApplicationController
       @aluno = Aluno.find_by(id: params[:aluno_id])
       @kit = @aluno.kits.build(kit_params)
 
-      content = @aluno.matricula + ';' + @kit.nome.to_s
+      content = @aluno.matricula + ";" + @kit.kit_type.id.to_s
       
       qr_code_img = RQRCode::QRCode.new(content, :size => 3, :level => :h).to_img.
       resize(150, 150)
 
       if @kit.save && (@kit.update_attribute :image, qr_code_img.to_string)
         # 2012939548;17
-  
         flash[:success] = "Kit created!"
         redirect_to @aluno
       else
-        render 'static_pages/home'
+        render 'new'
       end
     end
     
@@ -51,18 +50,21 @@ class KitsController < ApplicationController
     def update
       @kit = Kit.find(params[:id])
       @aluno = @kit.aluno
-      if @kit.update_attributes(kit_params)
+      content = @aluno.matricula + ";" + kit_params[:kit_type_id]
+      qr_code_img = RQRCode::QRCode.new(content.to_s, :size => 3, :level => :h).to_img.resize(150, 150)
+
+      if @kit.update_attributes(kit_params) && (@kit.update_attribute :image, qr_code_img.to_string)
         flash[:success] = "Kit atualizado"
         redirect_to @kit    
       else
       render 'edit'
       end
     end
-    
+
     private
  
       def kit_params
-        params.require(:kit).permit(:nome)
+        params.require(:kit).permit(:kit_type_id)
       end 
       
     def json_request?

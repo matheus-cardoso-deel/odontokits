@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     end
   end
   resources :feeds, only: [:create, :index]
+  resources :kit_types
   
   get '/kits', to: 'kits#index'
 

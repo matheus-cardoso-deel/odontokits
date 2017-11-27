@@ -1,0 +1,9 @@
+<%= form_for(@kit_type, url: yield(:path)) do |f| %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :nome %>
+  <%= f.text_field :type_name, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

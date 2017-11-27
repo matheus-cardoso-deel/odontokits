@@ -8,7 +8,7 @@
       <% end %>
       <span class="user"><b> <%= feed.tipo_utf8 %> </b>  - Setor de Esterelização DOD/CCS</span>
       <br>
-      <%= link_to Kit.find(feed.kit_id).nome, feed.kit %>
+      <%= link_to Kit.find(feed.kit_id).tipo, feed.kit %>
       <span class="timestamp">
         <%=feed.created_at.strftime("%d/%m/%Y às %T") %>
         <br>

@@ -1,14 +1,17 @@
-<div class="img-thumbnail", id="margem", style="width:65%"> 
+<div id="label-font">
+  <br>
+  <br>    
+  <br>  
   <% if Rails.env.development? %>
-      <%= image_tag(Rails.root.join('public', 'system', 'dragonfly', 'development', "#{kit.image_uid}"), alt: "QRCODE", class: "gravatar") %>
+      <%= image_tag(Rails.root.join('public', 'system', 'dragonfly', 'development', "#{kit.image_uid}"), size: "55x55", alt: "QRCODE", class: "gravatar") %>
   <% else %>
-      <%= image_tag('https://s3-sa-east-1.amazonaws.com/odontokits/' + "#{kit.image_uid}", alt: "QRCODE", class: "gravatar") %>
+      <%= image_tag('https://s3-sa-east-1.amazonaws.com/odontokits/' + "#{kit.image_uid}", size: "55x55", alt: "QRCODE", class: "gravatar") %>
   <% end %>
-          <b style="visibility:hidden">Nome: this is just to fill in</b>
+  <div>
+          <b> NOME: <%= kit.aluno.nome %> </b>
           <br>
-          <b>Nome: </b> <%= kit.aluno.nome %>
+          <b> PERÍODO: <%= kit.aluno.periodo %> </b> 
           <br>
-          <b>Período: </b> <%= kit.aluno.periodo %>
-          <br>
-          <b>Kit: </b> <%= kit.nome %>
+          <b> KIT: <%= kit.tipo %> </b>
+  </div>
 </div>

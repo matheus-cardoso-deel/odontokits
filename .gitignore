@@ -31,3 +31,5 @@
 
 # Ignore ENV variables
 .env
+
+credentials

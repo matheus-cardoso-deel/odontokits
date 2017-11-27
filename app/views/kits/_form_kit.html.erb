@@ -1,9 +1,9 @@
 <%= form_for(@kit, url: yield(:path)) do |f| %>
 
   <%= render 'shared/error_messages', object: f.object %>
-
-  <%= f.label :nome %>
-  <%= f.text_field :nome, class: 'form-control' %>
+  
+  <%= f.label :tipo_de_caixa %>
+  <%= f.collection_select(:kit_type_id, KitType.all, :id, :type_name) %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

@@ -1,16 +1,16 @@
-<% provide(:title, @kit.aluno.nome + "'s " + @kit.nome) %>
+<% provide(:title, @kit.aluno.nome + "'s " + @kit.tipo) %>
 <div class="row">
   <aside class="col-md-4">
 
     <section class="user_info">
       <h1>
           <%= link_to image_tag("toolbox-icon.png", size:"50", alt: "Kit Image"), '#' %>
-          <%= @kit.nome %>
+          <%= @kit.tipo %>
           <% if current_user.admin? %>
              <%= link_to "Editar Kit", edit_kit_path(@kit), class: 'btn btn-primary', style: 'float: right'%>
              <br>
              <%= link_to "Excluir Kit", @kit, #analogous kit_path(@kit)
-             method: :delete, data: { confirm: "Você tem certeza que deseja excluir #{@kit.nome}?" }, class: 'btn btn-danger', style: 'float: right'%>
+             method: :delete, data: { confirm: "Você tem certeza que deseja excluir #{@kit.tipo}?" }, class: 'btn btn-danger', style: 'float: right'%>
           <% end %>
       </h1>
       <div class="img-thumbnail", id="margem"> 
@@ -22,7 +22,7 @@
               <br>
               <b>Período: </b> <%= @kit.aluno.periodo %>
               <br>
-              <b>Kit: </b> <%= @kit.nome %>
+              <b>Kit: </b> <%= @kit.tipo %>
       </div>
     </section>
     <div style="margin-left: 80px">
@@ -30,7 +30,7 @@
     </div>
   </aside>
     <div class="col-md-8">  
-    <h3>Histórico de Transações para <%= @kit.nome %> (<%= @kit.feeds.count %>)</h3>
+    <h3>Histórico de Transações para <%= @kit.tipo %> (<%= @kit.feeds.count %>)</h3>
     <% if @kit.feeds.any? %>
       <ol class="feeds">
         <%= render @feeds %>

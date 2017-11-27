@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825052556) do
+ActiveRecord::Schema.define(version: 20171030134139) do
 
   create_table "alunos", force: :cascade do |t|
     t.string   "image_uid"
@@ -34,14 +34,22 @@ ActiveRecord::Schema.define(version: 20170825052556) do
     t.index ["kit_id"], name: "index_feeds_on_kit_id"
   end
 
+  create_table "kit_types", force: :cascade do |t|
+    t.string   "type_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "kits", force: :cascade do |t|
     t.string   "nome"
     t.string   "image_uid"
     t.integer  "aluno_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "kit_type_id"
     t.index ["aluno_id", "created_at"], name: "index_kits_on_aluno_id_and_created_at"
     t.index ["aluno_id"], name: "index_kits_on_aluno_id"
+    t.index ["kit_type_id"], name: "index_kits_on_kit_type_id"
   end
 
   create_table "users", force: :cascade do |t|

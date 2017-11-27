@@ -1,7 +1,7 @@
 <li id="kit-<%= kit.id %>">
   <%= link_to image_tag("toolbox-icon.png", size:"50", alt: "Kit Image", class:"gravatar"), kit.aluno %>
-  <span class="user"><%= link_to kit.nome, kit_path(kit) %></span>
-  <span class="content"><%= kit.nome %></span>
+  <span class="user"><%= link_to kit.tipo, kit_path(kit) %></span>
+  <span class="content"><%= kit.tipo %></span>
   <span class="timestamp">
     <br>
   </span>
