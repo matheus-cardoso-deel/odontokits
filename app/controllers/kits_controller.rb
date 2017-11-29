@@ -4,7 +4,7 @@ class KitsController < ApplicationController
  # before_action :authenticate_request, if: -> { json_request? }
 
     def index
-      @kits = Kit.all
+      @kits = Kit.paginate(page: params[:page], :per_page => 25)
     end
     
     def show
