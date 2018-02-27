@@ -8,7 +8,8 @@ class FeedsController < ApplicationController
   end
   
   def create
-    @kit = Kit.find(params[:kit_id])
+    @aluno = Aluno.find_by(matricula: params[:matricula])
+    @kit = @aluno.kits.find_by(kit_type_id: params[:kit_type_id])
     @feed = @kit.feeds.build(tipo: params[:tipo])
 
     # Handle a successful first save.
