@@ -3,9 +3,9 @@
   <br>    
   <br>  
   <% if Rails.env.development? %>
-      <%= image_tag(Rails.root.join('public', 'system', 'dragonfly', 'development', "#{kit.image_uid}"), size: "55x55", alt: "QRCODE", class: "gravatar") %>
+      <%= image_tag(Rails.root.join('public', 'system', 'dragonfly', 'development', "#{kit.image_uid}"), size: "67x67", alt: "QRCODE", class: "gravatar") %>
   <% else %>
-      <%= image_tag('https://s3-sa-east-1.amazonaws.com/odontokits/' + "#{kit.image_uid}", size: "55x55", alt: "QRCODE", class: "gravatar") %>
+      <%= image_tag('https://s3-sa-east-1.amazonaws.com/odontokits/' + "#{kit.image_uid}", size: "67x67", alt: "QRCODE", class: "gravatar") %>
   <% end %>
   <div>
           <b> NOME: <%= kit.aluno.nome %> </b>
