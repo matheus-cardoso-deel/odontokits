@@ -26,7 +26,7 @@
       </div>
     </section>
     <div style="margin-left: 80px">
-      <%= link_to "Gerar Etiqueta", kit_download_path(@kit, format: "pdf"), target: "_blank", class: "btn btn-lg btn-primary" %>
+      <%= link_to "Gerar Etiqueta", kit_download_path(@kit, all_kits: false, format: "pdf"), target: "_blank", class: "btn btn-lg btn-primary" %>
     </div>
   </aside>
     <div class="col-md-8">  

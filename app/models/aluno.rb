@@ -12,6 +12,4 @@ class Aluno < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, if: :password_digest_changed?
   validates :periodo, length: { maximum: 20 }
-
-  
 end

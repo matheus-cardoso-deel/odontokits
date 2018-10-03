@@ -3,8 +3,10 @@ require "render_anywhere"
 class KitTagPdf #Why in models? -> Why not?
   include RenderAnywhere
  
-  def initialize(kit)
+  def initialize(kit, kits, all_kits)
     @kit = kit
+    @kits = kits
+    @all_kits = all_kits
   end
  
   def to_pdf
@@ -27,9 +29,9 @@ class KitTagPdf #Why in models? -> Why not?
  
   private
  
-    attr_reader :kit
+    attr_reader :kit, :kits, :all_kits
  
     def as_html
-      render template: "kits/pdf", layout: "kit_pdf", locals: { kit: kit }
+      render template: "kits/pdf", layout: "kit_pdf", locals: { kit: kit, kits: kits, all_kits: all_kits }
     end
 end

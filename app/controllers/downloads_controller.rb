@@ -8,7 +8,8 @@ class DownloadsController < ApplicationController
  
   def kit_pdf
     kit = Kit.find(params[:kit_id])
-    KitTagPdf.new(kit)
+    kits = kit.aluno.kits.to_a - [kit]
+    KitTagPdf.new(kit, kits, params[:all_kits])
   end
  
   def send_kit_pdf

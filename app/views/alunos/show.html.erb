@@ -18,6 +18,7 @@
            <%= link_to "Excluir Aluno", @aluno, #analogous aluno_path(@aluno)
            method: :delete, data: { confirm: "Você tem certeza que deseja excluir o aluno #{@aluno.nome}?" }, class: 'btn btn-danger', style: 'float: left' %>
            <%= link_to "Redefinir Senha de Aluno", aluno_edit_password_path(@aluno), class: 'btn btn-info', style: 'margin-left:60px; margin-top:10px' %>
+          <%= link_to "Gerar Etiquetas do Aluno", kit_download_path(@aluno.kits.first, all_kits: true, format: "pdf"), style: 'margin-left:60px; margin-top:10px', target: "_blank", class: "btn btn-warning" %>
         <% end %>
       </div>
     </section>
