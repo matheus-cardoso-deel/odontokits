@@ -1,0 +1,8 @@
+<% provide(:title, 'Alterar Periodo') %>
+
+<h1>Alterar Periodo</h1>
+
+<div>
+	<%= link_to "Aumentar Período em 1" , alterar_periodo_path(up: true), method: :post, class: "btn btn-lg btn-primary", style: "margin-left:30px; margin-bottom:30px" %>
+	<%= link_to "Diminuir Período em 1" , alterar_periodo_path(up: nil), method: :post, class: "btn btn-lg btn-danger", style: "margin-left:30px; margin-bottom:30px" %>
+</div>

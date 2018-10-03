@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   post 'authenticate_user', to: 'authentication#authenticate_user'
   post 'authenticate_aluno', to: 'authentication#authenticate_aluno'
 
+  get 'alterar_periodo', to: 'alunos#get_alterar_periodo'
+  post 'alterar_periodo', to: 'alunos#alterar_periodo'
+
   resources :users
   resources :alunos do
     get 'edit_password', to: 'alunos#edit_password'

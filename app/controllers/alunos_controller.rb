@@ -62,6 +62,28 @@ class AlunosController < ApplicationController
     render 'edit_password'
     end
   end
+
+  def get_alterar_periodo
+  end
+
+  def alterar_periodo
+    if params[:up]
+      Aluno.all.each do |aluno|
+        if aluno.periodo.to_i > 0
+          aluno.update!(periodo: aluno.periodo.to_i + 1)
+          flash[:success] = "Períodos aumentados em 1!"
+        end
+      end
+    else
+      Aluno.all.each do |aluno|
+        if aluno.periodo.to_i > 0
+          aluno.update!(periodo: aluno.periodo.to_i - 1)
+          flash[:success] = "Períodos diminuidos em 1!"
+        end
+      end
+    end
+    redirect_to alterar_periodo_path
+  end
   
   private
   
