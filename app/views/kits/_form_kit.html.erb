@@ -3,7 +3,7 @@
   <%= render 'shared/error_messages', object: f.object %>
   
   <%= f.label :tipo_de_caixa %>
-  <%= f.collection_select(:kit_type_id, KitType.all, :id, :type_name) %>
+  <%= f.collection_select(:kit_type_id, KitType.order(:type_name), :id, :type_name) %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
