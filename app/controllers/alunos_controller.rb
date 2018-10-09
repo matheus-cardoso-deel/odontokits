@@ -25,7 +25,7 @@ class AlunosController < ApplicationController
   
   def show
     @aluno = Aluno.find(params[:id])
-    @kits = @aluno.kits.paginate(page: params[:page], :per_page => 4)
+    @kits = @aluno.kits.paginate(page: params[:page], :per_page => 40)
     @feeds = @aluno.feeds.paginate(page: params[:page], :per_page => 3)
   end
   
