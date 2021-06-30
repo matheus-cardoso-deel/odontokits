@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
+ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.1'
 # Use Puma as the app server
-gem 'puma', '3.4.0'
+gem 'puma', '~> 3.10'
 # Use SCSS for stylesheets
 gem 'sass-rails', '5.0.6'
 # Use Uglifier as compressor for JavaScript assets
@@ -72,8 +73,6 @@ gem 'ransack'
 gem 'newrelic_rpm'
 
 group :development, :test do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '1.3.12'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
 end
