@@ -66,7 +66,7 @@ gem 'dragonfly-s3_data_store', '~> 1.2'
 
 gem 'pdfkit'
 gem 'render_anywhere'
-gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary', '0.12.6.5'
 gem 'compass-rails'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'ransack'
