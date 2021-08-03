@@ -64,7 +64,7 @@ gem 'dragonfly-s3_data_store', '~> 1.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'pdfkit'
+gem 'pdfkit', '0.8.5'
 gem 'render_anywhere'
 gem 'wkhtmltopdf-binary', '0.12.6.5'
 gem 'compass-rails'

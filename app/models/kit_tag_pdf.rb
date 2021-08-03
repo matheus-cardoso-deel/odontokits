@@ -11,6 +11,7 @@ class KitTagPdf #Why in models? -> Why not?
  
   def to_pdf
     pdf_kit = PDFKit.new(as_html, options = {
+    'enable_local_file_access': 'true',
     'page-size': 'A4',
     'margin-top': '0in',
     'margin-right': '0.078in',
