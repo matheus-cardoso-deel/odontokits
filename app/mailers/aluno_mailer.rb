@@ -4,6 +4,6 @@ class AlunoMailer < ApplicationMailer
   	@feed = feed
   	@kit = @feed.kit
     @aluno = @kit.aluno
-    mail(to: @aluno.email, subject: 'Comprovante de Movimentação de Item - Setor de Esterelização')
+    mail(to: @aluno.email, subject: 'Comprovante de Movimentação de Item - Setor de Esterilização')
   end
 end

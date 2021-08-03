@@ -6,7 +6,7 @@
       <% else %>
         <%= link_to image_tag("saida.png", size:"40", alt: "Feed Image", class:"gravatar"), feed.kit %>
       <% end %>
-      <span class="user"><b> <%= feed.tipo_utf8 %> </b>  - Setor de Esterelização DOD/CCS</span>
+      <span class="user"><b> <%= feed.tipo_utf8 %> </b>  - Setor de Esterilização DOD/CCS</span>
       <br>
       <%= link_to Kit.find(feed.kit_id).tipo, feed.kit %>
       <span class="timestamp">

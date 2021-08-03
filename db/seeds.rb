@@ -62,9 +62,9 @@ aluno_matheus.kits.create!(nome: "Caixa de aparelhos", image: qr_code_img.to_str
 qr_code_img = RQRCode::QRCode.new("Kit de clareamento", :size => 4, :level => :h ).to_img.
 resize(150, 150)
 aluno_matheus.kits.create!(nome: "Kit de clareamento", image: qr_code_img.to_string)
-qr_code_img = RQRCode::QRCode.new("Kit de esterelização", :size => 4, :level => :h ).to_img.
+qr_code_img = RQRCode::QRCode.new("Kit de esterilização", :size => 4, :level => :h ).to_img.
 resize(150, 150)
-aluno_matheus.kits.create!(nome: "Kit de esterelização", image: qr_code_img.to_string)
+aluno_matheus.kits.create!(nome: "Kit de esterilização", image: qr_code_img.to_string)
 qr_code_img = RQRCode::QRCode.new("Kit Higiênico", :size => 4, :level => :h ).to_img.
 resize(150, 150)
 aluno_matheus.kits.create!(nome: "Kit Higiênico", image: qr_code_img.to_string)
